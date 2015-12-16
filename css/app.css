@@ -1,0 +1,32 @@
+.container {
+  height: 500px;
+  width: 500px;
+  margin: 0px auto;
+}
+.img {
+  display: inline-block;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+}
+.img.img1 {
+  background-color: rosybrown;
+}
+.img.img2 {
+  background-color: forestgreen;
+  height: 200px;
+}
+.img.img3 {
+  background-color: grey;
+}
+.img.img4 {
+  background-color: aqua;
+  height: 400px;
+}
+.img.img5 {
+  background-color: navajowhite;
+}
+.img.img6 {
+  background-color: indigo;
+}
+/*# sourceMappingURL=app.css.map */
