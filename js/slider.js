@@ -7,20 +7,20 @@ $(function(){
 		});
 		return this;
 	}
-	
+
 	Slider.fn = Slider.prototype = {
 		init:function(option){
 			//合并默认参数
 			var config = $.extend({},{
 				controlItem:true, //是否生成小圆圈控制按钮
-				controlBtn:true,//是否生成next prve按钮
+				controlBtn:true,//是否生成next prve左右控制按钮
 				show:1, //一屏显示的item个数
 				autoPlay:true,//是否自动滚动
 				time:1000,//自动滚动周期
 				lock:false, // 是否锁定不让滚动
 			},option);
 			var slider = this;
-			
+
 			//如果还没有初始化就初始化,否则返回之前初始化的对象
 			if( !$(config.elem).data("slider") ){
 				slider.config  = config;
@@ -31,33 +31,33 @@ $(function(){
 				slider.index = 0; //当前显示的是第几屏
 				slider.$items.css("width",slider.count*100+"%");
 				slider.$item.css("width",(100/slider.count/slider.config.show)+"%");
-				
+
 				slider.buildControl();
-				
+
 				//自动滚动
 				if(slider.config.autoPlay){
 					setInterval(function(){
 						slider.next();
 					},slider.config.time);
 				}
-				
+
 				slider.$elem.data("slider",slider);
 			}else{
 				slider = $(config.elem).data("slider");
 			}
-			
+
 			return slider;
 		},
-		
+
 		//生成控制按钮
 		buildControl:function(){
 			var slider = this;
-			
+
 			//如果只有一屏,就没有必要生成控制按钮了
 			if(slider.count == 1 ){
-				return false;
+//				return false;
 			}
-			
+
 			//是否生成小圆圈控制按钮
 			if(slider.config.controlItem){
 				slider.$controlItem = $("<div class='control'></div>");
@@ -75,7 +75,7 @@ $(function(){
 				slider.$controlItem.append(slider.$control_items);
 				slider.$elem.append(slider.$controlItem);
 			}
-			
+
 			//是否生成上一屏 下一屏按钮
 			if(slider.config.controlBtn){
 				slider.$prev = $("<div class='controlBtn prev'><</div>");
@@ -83,7 +83,7 @@ $(function(){
 					slider.prev();
 				});
 				slider.$elem.append(slider.$prev);
-				
+
 				slider.$next = $("<div class='controlBtn next'>></div>");
 				slider.$next.bind("click",function(){
 					slider.next();
@@ -91,7 +91,7 @@ $(function(){
 				slider.$elem.append(slider.$next);
 			}
 		},
-		
+
 		//滚动到某屏
 		go:function(index){
 			var slider = this;
@@ -113,7 +113,7 @@ $(function(){
 				slider.config.lock = false;
 			});
 		},
-		
+
 		//上一屏
 		prev:function(){
 			var  index = this.index -1;
@@ -122,7 +122,7 @@ $(function(){
 			}
 			this.go(index);
 		},
-		
+
 		//下一屏
 		next:function(){
 			var  index = this.index +1;
@@ -132,7 +132,7 @@ $(function(){
 			this.go(index);
 		},
 	};
-	
+
 	Slider.fn.init.prototype = Slider.fn;
 	$.fn.extend({Slider:Slider});
 });

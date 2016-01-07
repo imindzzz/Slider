@@ -5,6 +5,14 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/app.css"/>
 		<link rel="stylesheet" type="text/css" href="css/slider.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+		<style type="text/css">
+			body{
+				background-image: url(img/banner2.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="container">
@@ -27,13 +35,34 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<button type="button" onclick="$('.slider').data('slider').next();">下一屏</button>
 			<button type="button" onclick="$('.slider').data('slider').config.lock = true;">锁定</button>
 			<button type="button" onclick="$('.slider').data('slider').config.lock = false;">解锁</button>
 		</div>
-		
-		
+
+		<div class="container">
+			<div class="slider auto-zoom" data-zoom-width = "4" data-zoom-height = "1">
+				<div class="items">
+					<div class="item">
+						<div class="img img1">1</div>
+					</div>
+					<div class="item">
+						<div class="img img2">2</div>
+					</div>
+					<div class="item">
+						<div class="img img3">3</div>
+					</div>
+					<div class="item">
+						<div class="img img4">4</div>
+					</div>
+					<div class="item">
+						<div class="img img5">4</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</body>
 	<script type="text/javascript" src="js/jquery.js" ></script>
 	<script type="text/javascript" src="js/slider.js" ></script>
